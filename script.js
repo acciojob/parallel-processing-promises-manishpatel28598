@@ -15,9 +15,7 @@ async function downloadImages(images) {
       if (!response.ok) {
         throw new Error(`Failed to load image's URL: ${image.url}`);
       }
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      return url;
+      return image.url;
     });
 
     // Download all images in parallel using Promise.all
